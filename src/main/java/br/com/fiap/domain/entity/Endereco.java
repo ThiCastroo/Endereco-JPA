@@ -20,6 +20,8 @@ public class Endereco {
 
     private String logradouro;
 
+    private String numero;
+
     private String complemento;
 
     private String bairro;
@@ -38,10 +40,11 @@ public class Endereco {
 
     public Endereco() {}
 
-    public Endereco(Pessoa pessoa, String cep, String logradouro, String complemento, String bairro, String localidade, String uf, String ibge, String gia, String ddd, String siafi) {
+    public Endereco(Pessoa pessoa, String cep, String logradouro, String numero, String complemento, String bairro, String localidade, String uf, String ibge, String gia, String ddd, String siafi) {
         this.pessoa = pessoa;
         this.cep = cep;
         this.logradouro = logradouro;
+        this.numero = numero;
         this.complemento = complemento;
         this.bairro = bairro;
         this.localidade = localidade;
@@ -76,6 +79,15 @@ public class Endereco {
 
     public Endereco setLogradouro(String logradouro) {
         this.logradouro = logradouro;
+        return this;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public Endereco setNumero(String numero) {
+        this.numero = numero;
         return this;
     }
 
@@ -151,12 +163,14 @@ public class Endereco {
         return this;
     }
 
+
     @Override
     public String toString() {
         return "Endereco{" +
                 "pessoa=" + pessoa +
                 ", cep='" + cep + '\'' +
                 ", logradouro='" + logradouro + '\'' +
+                ", numero='" + numero + '\'' +
                 ", complemento='" + complemento + '\'' +
                 ", bairro='" + bairro + '\'' +
                 ", localidade='" + localidade + '\'' +
