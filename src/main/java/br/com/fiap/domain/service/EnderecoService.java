@@ -10,8 +10,18 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class EnderecoService {
+
+    private static final AtomicReference<EnderecoService> instace = new AtomicReference<>();
+
+    private EnderecoService () {}
+
+    public static EnderecoService build() {
+        instace.compareAndSet(null, new EnderecoService());
+        return instace.get();
+    }
 
     private final String ENDERECO_API = "https://viacep.com.br/ws/";
 

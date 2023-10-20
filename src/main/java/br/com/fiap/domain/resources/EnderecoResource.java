@@ -11,9 +11,7 @@ import java.util.Objects;
 
 @Path("/endereco")
 public class EnderecoResource {
-
-    private EnderecoService service = new EnderecoService();
-
+    private EnderecoService service = EnderecoService.build();
     @GET
     @Path("/{cep}")
     public Response findByCep(@PathParam("cep") String cep) {
